@@ -1,4 +1,13 @@
 from src.bingo import carton
+from src.bingo import validar_quince_numeros
+
+def test_contar_celdas_ocupadas():
+    carton = (
+        (1,0,1,0,0,1,0,0,1),
+        (1,0,0,1,0,0,1,0,1),
+        (1,0,0,0,1,0,0,1,1),
+    )
+    assert validar_quince_numeros(carton) == True
 
 def test_contar_celdas_1():
     mi_carton = carton()
