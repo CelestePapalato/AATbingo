@@ -36,3 +36,18 @@ def test_row_ocupadas():
             if (mi_carton[fila][columna] != 0):
                 x = x + 1
         assert x < 3
+def test_row_1():
+    mi_carton = (
+        (1,1,0,1,1,1,1,0,1),
+        (0,0,1,1,0,1,0,1,0),
+        (0,1,0,0,1,0,0,1,1)
+    )
+    ocupadas_con_uno = 0
+    for columna in range(0, 9):
+        x = 0
+        for fila in range(0, 3):
+            if (mi_carton[fila][columna] != 0):
+                x = x + 1
+        if (x == 1):
+            ocupadas_con_uno = ocupadas_con_uno + 1
+    assert ocupadas_con_uno == 3
