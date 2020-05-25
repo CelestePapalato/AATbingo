@@ -25,9 +25,21 @@ def test_izq_der():
         (1,2,3,4,5,6,7,8,9),
         (1,2,3,4,5,6,7,8,9),
     )
-    a = 1
     for fila in range(0, 3):
         for columna in range(0, 8):
             celda = mi_carton[fila][columna]
             celda_siguiente = mi_carton[fila][columna + 1]
             assert celda < celda_siguiente
+
+def test_filas_ocupadas():
+    mi_carton = (
+        (1,1,0,1,1,1,0,0,0),
+        (0,0,1,1,0,1,1,1,0),
+        (1,1,0,0,1,0,0,1,1)
+    )
+    for fila in range(0, 3):
+        x = 0
+        for columna in range(0, 9):
+            if (mi_carton[fila][columna] != 0):
+                x = x + 1
+        assert x == 5
