@@ -58,3 +58,18 @@ def test_ocupadas_consecutivas():
             else:
                 x = 0
             assert x <= 2
+
+def test_vacias_consecutivas():
+    mi_carton = (
+        (1,1,0,1,1,0,0,1,0),
+        (0,0,1,1,0,1,1,0,0),
+        (1,1,0,0,1,0,0,1,1)
+    )
+    for fila in range(0, 3):
+        x = 0
+        for columna in range(0, 9):
+            if (mi_carton[fila][columna] == 0):
+                x = x + 1
+            else:
+                x = 0
+            assert x <= 2
