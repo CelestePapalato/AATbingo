@@ -53,7 +53,7 @@ def test_contar_celdas_3(mi_carton):
     return (i == 9)
 
 def test_celdas_repetidas(mi_carton):
-    i = 0
+    i = True
     for fila in range(0, 3):
         for columna in range(0, 9):
             celda = mi_carton[fila][columna]
@@ -63,10 +63,9 @@ def test_celdas_repetidas(mi_carton):
                     for d_columna in range (aux, 9):
                         d_celda = mi_carton[d_fila][d_columna]
                         if(d_celda != 0):
-                            if (celda == d_celda):
-                                i = 1
+                            i = i and (celda != d_celda)
                     aux = 0
-    return (i == 0)
+    return i
 
 def test_contar_filas(mi_carton):
     fila1 = mi_carton[0]
@@ -87,28 +86,26 @@ def test_contar_filas(mi_carton):
     return (bandera == 1)
 
 def test_izq_der(mi_carton):
-    x = 1
+    x = True
     for fila in range(0, 3):
         for columna in range(0, 8):
             celda = mi_carton[fila][columna]
             if(celda != 0):
                 celda_siguiente = mi_carton[fila][columna + 1]
                 if(celda_siguiente != 0):
-                    if (celda > celda_siguiente):
-                        x = 0
-        return (x == 1)
+                    x = x and (celda < celda_siguiente)
+        return x
 
 def test_filas_ocupadas(mi_carton):
     for fila in range(0, 3):
         x = 0
-        y = 0
+        y = True
         for columna in range(0, 9):
             if (mi_carton[fila][columna] != 0):
                 x = x + 1
-        if (x != 5):
-                y = 1
+        y = y and (x == 5)
         x = 0
-        return (y == 0)
+        return y
 
 def test_ocupadas_consecutivas(mi_carton):
     y = 1
@@ -159,15 +156,14 @@ def test_empty_row(mi_carton):
     return (y == 1)
 
 def test_row_ocupadas(mi_carton):
-    y = 1
+    y = True
     for columna in range(0, 9):
         x = 0
         for fila in range(0, 3):
             if (mi_carton[fila][columna] != 0):
                 x = x + 1
-        if (x == 3):
-            y = 0
-    return (y == 1)
+        y = y and (x != 3)
+    return (y)
 
 def test_row_1(mi_carton):
     ocupadas_con_uno = 0
