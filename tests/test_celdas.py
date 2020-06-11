@@ -41,8 +41,6 @@ def test_celdas_repetidas():
             celda = mi_carton[fila][columna]
             if(celda != 0):
                 aux = columna + 1
-                if columna == 9:
-                    aux = 0
                 for d_fila in range (fila, 3):
                     for d_columna in range (aux, 9):
                         d_celda = mi_carton[d_fila][d_columna]

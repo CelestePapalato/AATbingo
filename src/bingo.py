@@ -19,13 +19,13 @@ def test_uno_a_noventa(mi_carton):
 
 def test_matrix(mi_carton):
     rows = len(mi_carton)
+    r = False
     if (rows == 3):
         for i in range(0, 3):
             columns = len(mi_carton[i])
-            return (columns == 9)
-    else:
-        return false
-
+            if(columns == 9):
+                r = True
+    return r
 def test_contar_celdas_1(mi_carton):
     contador = 0
     for fila in mi_carton:
@@ -59,8 +59,6 @@ def test_celdas_repetidas(mi_carton):
             celda = mi_carton[fila][columna]
             if(celda != 0):
                 aux = columna + 1
-                if columna == 9:
-                    aux = 0
                 for d_fila in range (fila, 3):
                     for d_columna in range (aux, 9):
                         d_celda = mi_carton[d_fila][d_columna]
@@ -286,3 +284,13 @@ def generar_carton():
             bandera = True
             break
     return carton
+
+def imprimir(carton):
+    part1 = list(carton[0])
+    part2 = list(carton[1])
+    part3 = list(carton[2])
+    print(part1[0], part1[1], part1[2], part1[3], part1[4], part1[5], part1[6], part1[7], part1[8])
+    print(part2[0], part2[1], part2[2], part2[3], part2[4], part2[5], part2[6], part2[7], part2[8])
+    print(part3[0], part3[1], part3[2], part3[3], part3[4], part3[5], part3[6], part3[7], part3[8])
+
+imprimir(generar_carton())
