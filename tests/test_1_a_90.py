@@ -1,6 +1,6 @@
-from src.generador import intentoCarton
+from src.bingo import generar_carton
 
-carton = intentoCarton()
+carton = generar_carton()
 
 def test_uno_a_noventa():
     mi_carton = carton
