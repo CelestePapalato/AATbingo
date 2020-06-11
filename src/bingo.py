@@ -146,14 +146,13 @@ def test_arr_abj(mi_carton):
     return (y == 1)
 
 def test_empty_row(mi_carton):
-    y = 1
+    y = True
     for columna in range(0, 9):
         x = 0
         for fila in range(0, 3):
             x = mi_carton[fila][columna] + x
-        if (x == 0):
-            y = 0
-    return (y == 1)
+        y = y and (x != 0)
+    return y
 
 def test_row_ocupadas(mi_carton):
     y = True
@@ -226,9 +225,6 @@ def intentoCarton():
         for y in range(0, 9):
             if (carton[x][y] == 0):
                 huecos = huecos + 1
-
-        if (huecos == 3):
-            return intentoCarton()
 
     carton1 = tuple(carton[0])
     carton2 = tuple(carton[1])
