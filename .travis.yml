@@ -1,11 +1,14 @@
-language: python
+language:
+    python
+
 python:
     - 3.8.2
-before_install:
-    - python --version
-    - pip install -U pip
-    - pip install pytest
-    - pip install codecov
-script: pytest
+
+install:
+    pip install pytest pytest-cov coveralls
+
+script:
+    pytest --cov=src/
+
 after_success:
-    - codecov
+    coveralls

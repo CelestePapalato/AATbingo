@@ -1,7 +1,9 @@
-from src.bingo import carton
+from src.generador import intentoCarton
+
+carton = intentoCarton()
 
 def test_uno_a_noventa():
-    mi_carton = carton()
+    mi_carton = carton
     contador = 0
 
     for fila in range(0, 3):

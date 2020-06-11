@@ -1,11 +1,7 @@
-from src.bingo import carton
+from tests.test_1_a_90 import carton
 
 def test_matrix():
-    mi_carton = (
-        (1,1,0,1,1,1,1,0,1),
-        (0,0,1,1,0,1,0,1,0),
-        (0,1,0,0,1,0,0,1,1)
-    )
+    mi_carton = carton
     rows = len(mi_carton)
     assert rows == 3
     for i in range(0, 3):
