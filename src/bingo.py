@@ -243,45 +243,25 @@ def intentoCarton():
 
 
 def generar_carton():
-    bandera = False
-    while bandera == False:
+    while True:
         carton = intentoCarton()
         i = 0
-        if(validar_quince_numeros(carton) == False):
-            i = 1
-        if(test_uno_a_noventa(carton) == False):
-            i = 1
-        if(test_matrix(carton) == False):
-            i = 1
-        if(test_contar_celdas_1(carton) == False):
-            i = 1
-        if(test_contar_celdas_2(carton) == False):
-            i = 1
-        if(test_contar_celdas_3(carton) == False):
-            i = 1
-        if(test_celdas_repetidas(carton) == False):
-            i = 1
-        if(test_contar_filas(carton) == False):
-            i = 1
-        if(test_izq_der(carton) == False):
-            i = 1
-        if(test_filas_ocupadas(carton) == False):
-            i = 1
-        if(test_ocupadas_consecutivas(carton) == False):
-            i = 1
-        if(test_vacias_consecutivas(carton) == False):
-            i = 1
-        if(test_arr_abj(carton) == False):
-            i = 1
-        if(test_empty_row(carton) == False):
-            i = 1
-        if(test_row_ocupadas(carton) == False):
-            i = 1
-        if(test_row_1(carton) == False):
-            i = 1
-
-        if (i == 0):
-            bandera = True
+        if(validar_quince_numeros(carton) == True
+        and test_uno_a_noventa(carton) == True
+        and test_matrix(carton) == True
+        and test_contar_celdas_1(carton) == True
+        and test_contar_celdas_2(carton) == True
+        and test_contar_celdas_3(carton) == True
+        and test_celdas_repetidas(carton) == True
+        and test_contar_filas(carton) == True
+        and test_izq_der(carton) == True
+        and test_filas_ocupadas(carton) == True
+        and test_ocupadas_consecutivas(carton) == True
+        and test_vacias_consecutivas(carton) == True
+        and test_arr_abj(carton) == True
+        and test_empty_row(carton) == True
+        and test_row_ocupadas(carton) == True
+        and test_row_1(carton) == True):
             break
     return carton
 
