@@ -233,7 +233,6 @@ def intentoCarton():
 
     return cartonF
 
-
 def generar_carton():
     while True:
         carton = intentoCarton()

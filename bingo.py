@@ -9,5 +9,4 @@ def imprimir():
     print(part2[0], part2[1], part2[2], part2[3], part2[4], part2[5], part2[6], part2[7], part2[8])
     print(part3[0], part3[1], part3[2], part3[3], part3[4], part3[5], part3[6], part3[7], part3[8])
 
-
 imprimir()
