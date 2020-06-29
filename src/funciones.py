@@ -57,14 +57,13 @@ def test_celdas_repetidas(mi_carton):
     for fila in range(0, 3):
         for columna in range(0, 9):
             celda = mi_carton[fila][columna]
-            if(celda != 0):
-                aux = columna + 1
-                for d_fila in range (fila, 3):
-                    for d_columna in range (aux, 9):
-                        d_celda = mi_carton[d_fila][d_columna]
-                        if(d_celda != 0):
-                            i = i and (celda != d_celda)
-                    aux = 0
+            aux = columna + 1
+            for d_fila in range (fila, 3):
+                for d_columna in range (aux, 9):
+                    d_celda = mi_carton[d_fila][d_columna]
+                    if(d_celda != 0 and celda != 0):
+                        i = i and celda != d_celda
+                aux = 0
     return i
 
 def test_contar_filas(mi_carton):
@@ -108,18 +107,17 @@ def test_filas_ocupadas(mi_carton):
 
 def test_ocupadas_y_vacias_consecutivas(mi_carton):
     y = True
-    for fila in range(0, 3):
-        x = 0
+    for fila in mi_carton:
         a = 0
-        for columna in range(0, 9):
-            if (mi_carton[fila][columna] != 0):
-                a = 0
-                x = x + 1
-            else:
+        b = 0
+        for celda in fila:
+            if (celda != 0):
+                b = 0
                 a = a + 1
-                x = 0
-            if (x > 2 or a > 2):
-                y = False
+            else:
+                b = b + 1
+                a = 0
+            y = y and a <= 2 and b <= 2
     return y
 
 def test_arr_abj(mi_carton):
