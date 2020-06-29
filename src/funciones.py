@@ -127,8 +127,7 @@ def test_arr_abj(mi_carton):
             aux = fila + 1
             for d_fila in range (aux, 3):
                 celda_sig = mi_carton[d_fila][columna]
-                if celda_sig != 0 and celda > celda_sig:
-                    y = False
+                y = y and (celda_sig > celda or celda_sig == 0)
     return y
 
 def test_empty_row(mi_carton):
