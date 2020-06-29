@@ -1,4 +1,4 @@
-from src.bingo import generar_carton
+from src.funciones import generar_carton
 
 carton = generar_carton()
 

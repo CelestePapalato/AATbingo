@@ -1,0 +1,68 @@
+<html>
+
+<head>
+    <title>Bingo</title>
+</head>
+<style>
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background-color: #ecf0f1;
+}
+
+.table {
+    display: flex;
+    flex-direction: column;
+}
+
+.row {
+    display: flex;
+}
+
+.row > div {
+    border: 1px solid #292929;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 4em;
+    height: 4em;
+
+}
+
+.cell {
+    background-color: #e74d3c;
+    color: #fff;
+}
+
+.empty {
+    background-color: #bdc3c7;
+}
+
+</style>
+
+<body>
+<div class= "table">
+    {% for columna in carton %}
+    <div class= "row">
+        {% for celda in columna %}
+        {% if celda == 0 %}
+        <div class= "empty"></div>
+        {% else %}
+        <div class= "cell">
+            {{ celda }}
+        </div>
+        {% endif %}
+        {% endfor %}
+
+    </div>
+    {% endfor %}
+</div>
+</body>
+
+</html>
