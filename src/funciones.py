@@ -107,31 +107,23 @@ def test_filas_ocupadas(mi_carton):
         x = 0
         return y
 
-def test_ocupadas_consecutivas(mi_carton):
+def test_ocupadas_y_vacias_consecutivas(mi_carton):
+    b = 1
     y = 1
     for fila in range(0, 3):
         x = 0
+        a = 0
         for columna in range(0, 9):
             if (mi_carton[fila][columna] != 0):
+                a = 0
                 x = x + 1
             else:
+                a = a + 1
                 x = 0
-            if (x > 2):
+            if (x > 2 or a > 2):
                 y = 0
-    return (y == 1)
-
-def test_vacias_consecutivas(mi_carton):
-    y = 1
-    for fila in range(0, 3):
-        x = 0
-        for columna in range(0, 9):
-            if (mi_carton[fila][columna] == 0):
-                x = x + 1
-            else:
-                x = 0
-            if (x > 2):
-                y = 0
-    return (y == 1)
+                b = 0
+    return (y == 1 and b == 1)
 
 def test_arr_abj(mi_carton):
     y = 1
@@ -247,8 +239,7 @@ def generar_carton():
         and test_contar_filas(carton) == True
         and test_izq_der(carton) == True
         and test_filas_ocupadas(carton) == True
-        and test_ocupadas_consecutivas(carton) == True
-        and test_vacias_consecutivas(carton) == True
+        and test_ocupadas_y_vacias_consecutivas(carton) == True
         and test_arr_abj(carton) == True
         and test_empty_row(carton) == True
         and test_row_ocupadas(carton) == True
