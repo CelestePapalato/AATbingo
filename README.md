@@ -42,3 +42,15 @@ $ python bingo.py
 8 0 27 0 42 0 69 0 87
 0 10 0 39 0 57 0 74 90
 ```
+
+## Versión HTML
+
+Para obtener una versión gráfica del cartón, se puede ejecutar:
+
+```
+$ python bingo_html.py
+```
+
+El cual genera un código html que muestra el cartón generado en una dimensión 9x3.
+
+Se requiere la librería Jinja2. Para más información sobre la misma, visite https://pypi.org/project/Jinja2/
