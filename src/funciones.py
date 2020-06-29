@@ -229,20 +229,21 @@ def generar_carton():
     while True:
         carton = intentoCarton()
         i = 0
-        if(validar_quince_numeros(carton) == True
-        and test_uno_a_noventa(carton) == True
-        and test_matrix(carton) == True
-        and test_contar_celdas_1(carton) == True
-        and test_contar_celdas_2(carton) == True
-        and test_contar_celdas_3(carton) == True
-        and test_celdas_repetidas(carton) == True
-        and test_contar_filas(carton) == True
-        and test_izq_der(carton) == True
-        and test_filas_ocupadas(carton) == True
-        and test_ocupadas_y_vacias_consecutivas(carton) == True
-        and test_arr_abj(carton) == True
-        and test_empty_row(carton) == True
-        and test_row_ocupadas(carton) == True
-        and test_row_1(carton) == True):
+        valido = validar_quince_numeros(carton)
+        valido = valido and test_uno_a_noventa(carton)
+        valido = valido and test_matrix(carton)
+        valido = valido and test_contar_celdas_1(carton)
+        valido = valido and test_contar_celdas_2(carton)
+        valido = valido and test_contar_celdas_3(carton)
+        valido = valido and test_celdas_repetidas(carton)
+        valido = valido and test_contar_filas(carton)
+        valido = valido and test_izq_der(carton)
+        valido = valido and test_filas_ocupadas(carton)
+        valido = valido and test_ocupadas_y_vacias_consecutivas(carton)
+        valido = valido and test_arr_abj(carton)
+        valido = valido and test_empty_row(carton)
+        valido = valido and test_row_ocupadas(carton)
+        valido = valido and test_row_1(carton)
+        if(valido):
             break
     return carton
