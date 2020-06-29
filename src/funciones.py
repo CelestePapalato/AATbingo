@@ -61,8 +61,7 @@ def test_celdas_repetidas(mi_carton):
             for d_fila in range (fila, 3):
                 for d_columna in range (aux, 9):
                     d_celda = mi_carton[d_fila][d_columna]
-                    if(d_celda != 0 and celda != 0):
-                        i = i and celda != d_celda
+                    i = d_celda != 0 and celda != 0 and celda != d_celda or d_celda == 0 or celda == 0 and i
                 aux = 0
     return i
 
@@ -125,9 +124,10 @@ def test_arr_abj(mi_carton):
     for columna in range(0, 9):
         for fila in range(0, 2):
             celda = mi_carton[fila][columna]
-            for d_fila in range (fila, 3):
-                celda_siguiente = mi_carton[d_fila][columna]
-                if(celda_siguiente != 0 and celda > celda_siguiente):
+            aux = fila + 1
+            for d_fila in range (aux, 3):
+                celda_sig = mi_carton[d_fila][columna]
+                if celda_sig != 0 and celda > celda_sig:
                     y = False
     return y
 
