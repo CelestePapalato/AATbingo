@@ -1,5 +1,5 @@
 from tests.test_1_a_90 import carton
-from src.bingo import validar_quince_numeros
+from src.funciones import validar_quince_numeros
 
 def test_contar_celdas_ocupadas():
     mi_carton = carton
