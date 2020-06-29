@@ -81,9 +81,8 @@ def test_contar_filas(mi_carton):
         y = y + celda
     for celda in fila3:
         z = z + celda
-    if( x > 0 and y > 0 and z > 0):
-        bandera = 1
-    return (bandera == 1)
+    bandera = (x > 0) and (y > 0) and (z > 0)
+    return (bandera)
 
 def test_izq_der(mi_carton):
     x = True
@@ -108,8 +107,7 @@ def test_filas_ocupadas(mi_carton):
         return y
 
 def test_ocupadas_y_vacias_consecutivas(mi_carton):
-    b = 1
-    y = 1
+    y = True
     for fila in range(0, 3):
         x = 0
         a = 0
@@ -121,21 +119,19 @@ def test_ocupadas_y_vacias_consecutivas(mi_carton):
                 a = a + 1
                 x = 0
             if (x > 2 or a > 2):
-                y = 0
-                b = 0
-    return (y == 1 and b == 1)
+                y = False
+    return y
 
 def test_arr_abj(mi_carton):
-    y = 1
+    y = True
     for columna in range(0, 9):
         for fila in range(0, 2):
             celda = mi_carton[fila][columna]
             for d_fila in range (fila, 3):
                 celda_siguiente = mi_carton[d_fila][columna]
-                if(celda_siguiente != 0):
-                    if (celda > celda_siguiente):
-                        y = 0
-    return (y == 1)
+                if(celda_siguiente != 0 and celda > celda_siguiente):
+                    y = False
+    return y
 
 def test_empty_row(mi_carton):
     y = True
